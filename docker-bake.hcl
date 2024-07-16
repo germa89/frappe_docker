@@ -44,6 +44,7 @@ target "bench" {
     }
     context = "images/bench"
     target = "bench"
+    platforms = ["linux/arm64"]
     tags = [
         "frappe/bench:${LATEST_BENCH_RELEASE}",
         "frappe/bench:latest",
@@ -53,6 +54,7 @@ target "bench" {
 target "bench-test" {
     inherits = ["bench"]
     target = "bench-test"
+    platforms = ["linux/arm64"]
 }
 
 # Main images
@@ -89,5 +91,6 @@ target "erpnext" {
     context = "."
     dockerfile = "images/production/Containerfile"
     target = "erpnext"
-    tags = tag("erpnext", "${ERPNEXT_VERSION}")
+    tags = tag("erpnext", "ger${ERPNEXT_VERSION}")
+    platforms = ["linux/arm64"]
 }
